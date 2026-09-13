@@ -121,19 +121,38 @@ def run_react_agent(user_query: str, provider, mcp_server: MCPAcademicServer) ->
                 if obs_data.get("status") == "SUCCESS":
                     if "data" in obs_data:
                         d = obs_data["data"]
+
                         final_answer = (
-                            f"Kết quả tra cứu cho sinh viên {obs_data.get('student_id', '')} ({d.get('full_name', '')}): "
-                            f"Lớp {d.get('class', '')}, GPA: {d.get('gpa', '')}, Email: {d.get('email', '')}, "
-                            f"Trạng thái: {d.get('status', '')}, Cố vấn: {d.get('advisor', '')}."
+                            f"Kết quả tra cứu tuyến {obs_data.get('route_id', '')}: "
+                            f"{d.get('route_name', '')}. "
+                            f"Lộ trình: {d.get('origin', '')} → {d.get('destination', '')}. "
+                            f"Loại tuyến: {d.get('route_type', '')}. "
+                            f"Giờ hoạt động: {d.get('operating_hours', '')}. "
+                            f"Tần suất: {d.get('frequency', '')}. "
+                            f"Điểm dừng: {', '.join(d.get('stops', []))}. "
+                            f"Trạng thái: {d.get('status', '')}."
                         )
+
                     elif "message" in obs_data:
                         final_answer = obs_data["message"]
+
                     else:
-                        final_answer = f"Đã hoàn tất xử lý qua MCP Server: {json.dumps(obs_data, ensure_ascii=False)}"
+                        final_answer = (
+                            f"Đã hoàn tất xử lý qua MCP Server: "
+                            f"{json.dumps(obs_data, ensure_ascii=False)}"
+                        )
+
                 elif obs_data.get("status") == "NOT_FOUND":
-                    final_answer = obs_data.get("message", "Không tìm thấy thông tin sinh viên yêu cầu.")
+                    final_answer = obs_data.get(
+                        "message",
+                        "Không tìm thấy thông tin tuyến VinBus yêu cầu."
+                    )
+
                 else:
-                    final_answer = f"Phản hồi từ công cụ: {json.dumps(obs_data, ensure_ascii=False)}"
+                    final_answer = (
+                        f"Phản hồi từ công cụ: "
+                        f"{json.dumps(obs_data, ensure_ascii=False)}"
+                    )
             
             trace_logs.append({
                 "step": step,

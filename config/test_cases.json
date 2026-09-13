@@ -1,0 +1,37 @@
+[
+  {
+    "id": "TC01",
+    "type": "direct_query",
+    "question": "Chào bạn, bạn có thể giới thiệu quy trình đặt vé tháng của Vinbus không?",
+    "expected_behavior": "Chatbot trả lời trực tiếp từ System Prompt, không cần gọi bất kỳ Tool nào.",
+    "complexity": "Low"
+  },
+  {
+    "id": "TC02",
+    "type": "single_tool_query",
+    "question": "Hãy tra cứu thông tin cơ bản của tuyến xe bus E03",
+    "expected_behavior": "Agent nhận diện nhu cầu tra cứu, tự động phát sinh Tool Call 'bus_route_query' với mã E03.",
+    "complexity": "Medium"
+  },
+  {
+  "id": "TC03",
+  "type": "appointment_booking",
+  "question": "Tôi muốn đặt lịch đến điểm hỗ trợ khách hàng VinBus để làm lại thẻ tháng vào lúc 14:00 ngày mai. Bạn có thể đặt lịch giúp tôi không?",
+  "expected_behavior": "Agent xác định ngày, giờ và mục đích đặt lịch, kiểm tra lịch trống bằng Tool Call phù hợp và tự động phát sinh Tool Call 'schedule_appointment' với đúng thời gian và thông tin dịch vụ.",
+  "complexity": "Medium"
+  },
+  {
+  "id": "TC04",
+  "type": "multi_step_reasoning",
+  "question": "Tôi muốn đi từ Học Viện Ngân Hàng đến Trường đại học Vinuni, hãy tìm tuyến VinBus phù hợp.",
+  "expected_behavior": "Agent tự động sử dụng các Tool Call cần thiết để tìm tuyến phù hợp, sau đó trả về chuyến VinBus phù hợp.",
+  "complexity": "Medium"
+  },
+  {
+    "id": "TC05",
+    "type": "edge_case_handling",
+    "question": "Tra cứu cho tôi thông tin của tuyến E67",
+    "expected_behavior": "Agent nhận kết quả NOT_FOUND từ Tool và đưa ra phản hồi lịch sự, chính xác không bịa đặt dữ liệu.",
+    "complexity": "Medium"
+  }
+]

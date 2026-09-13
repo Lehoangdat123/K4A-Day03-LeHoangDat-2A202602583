@@ -1,29 +1,101 @@
 [
   {
     "step": 1,
-    "query": "Chào bạn, bạn có thể giới thiệu quy chế học vụ cơ bản của Đại học VinUni không?",
+    "query": "Chào bạn, bạn có thể giới thiệu quy trình đặt vé tháng của Vinbus không?",
     "action_type": "FINAL_ANSWER",
-    "thought": "Câu hỏi chung về quy chế học vụ, trả lời trực tiếp không cần gọi Tool.",
-    "output": "[Mock Agent Response]: Xin chào! Quy chế học vụ VinUni yêu cầu sinh viên tích lũy tối thiểu 120 tín chỉ và duy trì GPA trên 2.0 để tốt nghiệp.",
-    "latency_ms": 2845.93
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Chào bạn! Quy trình đăng ký làm vé tháng VinBus hiện nay rất tiện lợi, bạn có thể lựa chọn một trong hai hình thức sau:\n\n### **Cách 1: Đăng ký trực tuyến (Online) - Nhanh chóng và tiện lợi**\n1. **Truy cập cổng đăng ký:** Bạn truy cập vào trang web [vedientu.vinbus.vn](https://vedientu.vinbus.vn/) hoặc đăng ký trực tiếp trên ứng dụng **VinID** (mục VinBus).\n2. **Điền thông tin:** Nhập đầy đủ thông tin cá nhân theo hướng dẫn.\n3. **Tải ảnh chân dung & giấy tờ minh chứng:** \n   * Tải lên ảnh chân dung (kích thước 2x3 hoặc 3x4).\n   * Nếu bạn là đối tượng ưu tiên (Học sinh, Sinh viên, Người cao tuổi, Công nhân khu công nghiệp...), cần chụp và tải ảnh thẻ học sinh/sinh viên hoặc giấy tờ chứng minh đối tượng ưu tiên.\n4. **Chọn hình thức nhận thẻ:** Bạn có thể chọn nhận thẻ trực tiếp tại các điểm hỗ trợ của VinBus hoặc đăng ký chuyển phát nhanh về tận địa chỉ nhà (có tính phí ship).\n5. **Thanh toán:** Tiến hành thanh toán phí làm thẻ và tiền vé tháng qua các cổng thanh toán điện tử được tích hợp.\n\n---\n\n### **Cách 2: Đăng ký trực tiếp tại các Điểm hỗ trợ khách hàng**\n1. **Chuẩn bị hồ sơ:**\n   * Bản sao CCCD/Hộ chiếu (mang theo bản chính để đối chiếu).\n   * Thẻ học sinh/sinh viên hoặc giấy tờ chứng minh đối tượng ưu tiên (nếu có).\n   * 02 ảnh chân dung kích thước 2x3 hoặc 3x4 (chụp trong vòng 6 tháng gần nhất).\n2. **Đến điểm hỗ trợ:** Bạn đến các quầy dịch vụ khách hàng của VinBus (thường đặt tại các điểm trung chuyển lớn hoặc các khu đô thị Vinhomes).\n3. **Điền tờ khai:** Nhận và điền thông tin vào tờ khai đăng ký làm thẻ vé tháng tại quầy.\n4. **Nộp lệ phí và nhận giấy hẹn:** Nhân viên sẽ tiếp nhận hồ sơ, thu phí và gửi bạn giấy hẹn ngày đến lấy thẻ.\n\n**Lưu ý:** Nếu bạn cần làm lại thẻ vé tháng do bị mất hoặc hỏng, bạn có thể sử dụng tính năng đặt lịch hẹn trước khi đến điểm hỗ trợ để tiết kiệm thời gian chờ đợi. Hãy báo cho tôi biết nếu bạn cần hỗ trợ đặt lịch hẹn nhé!",
+    "latency_ms": 7124.77
   },
   {
     "step": 1,
-    "query": "Hãy tra cứu thông tin học vụ của sinh viên SV2026001.",
+    "query": "Hãy tra cứu thông tin cơ bản của tuyến xe bus E03",
     "action_type": "TOOL_EXECUTION",
-    "tool_name": "academic_query",
+    "tool_name": "route_query",
     "arguments": {
-      "student_id": "SV2026001"
+      "route_id": "E03"
     },
-    "observation": {},
-    "latency_ms": 799.12
+    "observation": {
+      "status": "SUCCESS",
+      "route_id": "E03",
+      "data": {
+        "route_name": "E03",
+        "route_type": "VinBus",
+        "origin": "Khu đô thị Vinhomes Ocean Park",
+        "destination": "Bến xe Mỹ Đình",
+        "operating_hours": "05:00 - 21:30",
+        "frequency": "15 - 20 phút/chuyến",
+        "stops": [
+          "Vinhomes Ocean Park",
+          "Cầu Chương Dương",
+          "Hồ Hoàn Kiếm",
+          "Cầu Giấy",
+          "Bến xe Mỹ Đình"
+        ],
+        "status": "Đang hoạt động"
+      }
+    },
+    "latency_ms": 1774.9
   },
   {
     "step": 2,
-    "query": "Hãy tra cứu thông tin học vụ của sinh viên SV2026001.",
+    "query": "Hãy tra cứu thông tin cơ bản của tuyến xe bus E03",
     "action_type": "FINAL_ANSWER",
     "thought": "Tổng hợp kết quả từ MCP Server thành công.",
-    "output": "Chưa thể trả lời chi tiết do chưa nhận được dữ liệu từ MCP Server (hãy hoàn thành TODO 2.1).",
+    "output": "Kết quả tra cứu tuyến E03: E03. Lộ trình: Khu đô thị Vinhomes Ocean Park → Bến xe Mỹ Đình. Loại tuyến: VinBus. Giờ hoạt động: 05:00 - 21:30. Tần suất: 15 - 20 phút/chuyến. Điểm dừng: Vinhomes Ocean Park, Cầu Chương Dương, Hồ Hoàn Kiếm, Cầu Giấy, Bến xe Mỹ Đình. Trạng thái: Đang hoạt động.",
+    "latency_ms": 10.0
+  },
+  {
+    "step": 1,
+    "query": "Tôi muốn đặt lịch đến điểm hỗ trợ khách hàng VinBus để làm lại thẻ tháng vào lúc 14:00 ngày mai. Bạn có thể đặt lịch giúp tôi không?",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Để có thể hỗ trợ bạn đặt lịch hẹn làm lại thẻ tháng VinBus, tôi cần thêm một số thông tin chi tiết sau. Bạn vui lòng cung cấp giúp tôi nhé:\n\n1. **Họ và tên** của bạn.\n2. **Số điện thoại** liên hệ.\n3. **Ngày hẹn cụ thể** (do tôi không rõ ngày hôm nay là ngày nào để tính ngày mai, bạn vui lòng cho biết ngày cụ thể theo định dạng Ngày/Tháng/Năm).\n4. **Điểm hỗ trợ khách hàng VinBus** mà bạn muốn đến.\n\nSau khi nhận đủ thông tin, tôi sẽ tiến hành đặt lịch ngay cho bạn!",
+    "latency_ms": 3711.24
+  },
+  {
+    "step": 1,
+    "query": "Tôi muốn đi từ Học Viện Ngân Hàng đến Trường đại học Vinuni, hãy tìm tuyến VinBus phù hợp.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "route_query",
+    "arguments": {
+      "destination": "Trường đại học Vinuni",
+      "origin": "Học Viện Ngân Hàng"
+    },
+    "observation": {
+      "status": "INVALID_ARGUMENTS",
+      "error": "execute_route_query() got an unexpected keyword argument 'destination'"
+    },
+    "latency_ms": 1745.07
+  },
+  {
+    "step": 2,
+    "query": "Tôi muốn đi từ Học Viện Ngân Hàng đến Trường đại học Vinuni, hãy tìm tuyến VinBus phù hợp.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Tổng hợp kết quả từ MCP Server thành công.",
+    "output": "Phản hồi từ công cụ: {\"status\": \"INVALID_ARGUMENTS\", \"error\": \"execute_route_query() got an unexpected keyword argument 'destination'\"}",
+    "latency_ms": 10.0
+  },
+  {
+    "step": 1,
+    "query": "Tra cứu cho tôi thông tin của tuyến E67",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "route_query",
+    "arguments": {
+      "route_id": "E67"
+    },
+    "observation": {
+      "status": "NOT_FOUND",
+      "message": "Không tìm thấy thông tin tuyến VinBus có mã 'E67'"
+    },
+    "latency_ms": 4366.23
+  },
+  {
+    "step": 2,
+    "query": "Tra cứu cho tôi thông tin của tuyến E67",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Tổng hợp kết quả từ MCP Server thành công.",
+    "output": "Không tìm thấy thông tin tuyến VinBus có mã 'E67'",
     "latency_ms": 10.0
   }
 ]
